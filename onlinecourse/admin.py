@@ -24,21 +24,11 @@ class CourseAdmin(admin.ModelAdmin):
     list_filter = ['pub_date']
     search_fields = ['name', 'description']
 
-
-class LessonAdmin(admin.ModelAdmin):
-    inlines = [QuestionInline]
-    list_display = ['title']
-    
     
 class QuestionAdmin(admin.ModelAdmin):
     inlines = [ChoiceInline]
     
-   
-
-
 admin.site.register(Course, CourseAdmin)
-admin.site.register(Question, QuestionAdmin)
-admin.site.register(Lesson, LessonAdmin)
 admin.site.register(Instructor)
 admin.site.register(Learner)
 admin.site.register(Question, QuestionAdmin)
