@@ -1,6 +1,7 @@
 from django.contrib import admin
 # <HINT> Import any new Models here
 from .models import Course, Lesson, Instructor, Learner, Question, Choice
+from .models import Course, Lesson, Instructor, Learner, Question, Choice
 
 # <HINT> Register QuestionInline and ChoiceInline classes here
 class QuestionInline(admin.StackedInline):
@@ -25,6 +26,7 @@ class CourseAdmin(admin.ModelAdmin):
 
 
 class LessonAdmin(admin.ModelAdmin):
+    inlines = [QuestionInline]
     list_display = ['title']
     
     
@@ -35,6 +37,7 @@ class QuestionAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Course, CourseAdmin)
+admin.site.register(Question, QuestionAdmin)
 admin.site.register(Lesson, LessonAdmin)
 admin.site.register(Instructor)
 admin.site.register(Learner)
