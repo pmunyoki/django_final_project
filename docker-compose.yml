@@ -1,0 +1,6 @@
+version: "3" #Version of docker compose
+services: #Each service has its own dockerfile
+  app:
+    build: .
+    ports:
+      - 8084:8000
